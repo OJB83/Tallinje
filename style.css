@@ -3,3 +3,9 @@
 .actors{max-width:300px}@media(max-width:500px){.actors{max-width:245px}}
 
 .skin-options{border:0;display:flex;justify-content:center;gap:10px;padding:0;margin:24px 0}.skin-options legend{margin:auto;padding-bottom:12px;font-weight:700}.skin-options button{font-size:27px;padding:12px;background:#f4f6ed;border:2px solid transparent}.skin-options button[aria-pressed=true]{border-color:#55854d;background:#e9f1df}.skin-options span{display:block;font-size:13px;margin-top:5px}
+
+.retry .visitor{animation:robber-run 3.5s both}.retry #spark{animation:stolen-coin 3.5s both}.retry .visitor .legs{animation:running-legs .25s 8 alternate;transform-origin:90px 175px}.retry .hero svg{animation:nod 1s}
+@keyframes robber-run{0%{opacity:0;transform:translateX(230px) rotate(8deg)}25%,55%{opacity:1;transform:translateX(0) rotate(0)}100%{opacity:0;transform:translateX(450px) rotate(12deg)}}
+@keyframes stolen-coin{0%,20%{opacity:0;transform:translate(-50%,30px)}30%,55%{opacity:1;transform:translate(0,0)}90%,100%{opacity:0;transform:translate(300px,-30px)}}
+@keyframes running-legs{from{transform:rotate(-10deg)}to{transform:rotate(10deg)}}
+@media(prefers-reduced-motion:reduce){.retry .visitor{animation:none;opacity:1}.retry #spark{animation:none;opacity:1}}

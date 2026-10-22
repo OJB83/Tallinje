@@ -22,15 +22,15 @@ $('again').addEventListener('click',start);
 $('next').addEventListener('click',()=>{$('feedback').textContent='Klar for et nytt hopp?';newTask();});
 $('answer-form').addEventListener('submit',event=>{event.preventDefault();if(locked||$('answer').value==='')return;locked=true;const correct=Number($('answer').value)===task.target;position=correct?task.target:Math.max(0,position-10);draw();showEncounter(correct?'success':'retry');$('character').classList.remove('hopping');void $('character').offsetWidth;$('character').classList.add('hopping');$('answer-form').hidden=true;
 if(position===100){$('feedback').textContent='🧝 🙌 Bra! Du nådde 100! For et flott regneeventyr! 🎉';$('again').hidden=false;$('help').textContent='Du er i mål! Spill igjen for nye oppgaver.';$('again').focus();}
-else{$('feedback').textContent=correct?'🧝 🙌 Bra! Alven gir deg en high five!':`🧌 Prøv igjen! ${task.text} = ${task.target}. Du går 10 felt tilbake, men aldri forbi 0.`;$('help').textContent=correct?`Du landet på ${position}. Fortsett mot 100!`:task.help;$('next').hidden=false;$('next').focus();}});
+else{$('feedback').textContent=correct?'🧝 🙌 Bra! Alven gir deg en high five!':`En røver tok en gullmynt! ${task.text} = ${task.target}. Du går 10 felt tilbake, men aldri forbi 0.`;$('help').textContent=correct?`Du landet på ${position}. Fortsett mot 100!`:task.help;$('next').hidden=false;$('next').focus();}});
 
 function person(kind){
  const girl=avatar==='👧';
- const troll=kind==='troll', elf=kind==='elf';
- const skin=troll?'#93b66b':elf?'#f3c497':({dark:'#75452f',medium:'#bd8055',light:'#f3c497'}[skinTone]);
- const shirt=troll?'#9b744e':elf?'#44854b':girl?'#ab63a8':'#5288c4';
+ const troll=kind==='troll', elf=kind==='elf', robber=kind==='robber';
+ const skin=troll?'#93b66b':robber?'#e2aa78':elf?'#f3c497':({dark:'#75452f',medium:'#bd8055',light:'#f3c497'}[skinTone]);
+ const shirt=troll?'#9b744e':robber?'#67518a':elf?'#44854b':girl?'#ab63a8':'#5288c4';
  const hair=elf?'#e8ba5b':skinTone==='light'?'#69432f':'#241b1a';
- return `<svg viewBox="0 0 180 250" role="img" aria-label="${troll?'Vennlig troll':elf?'Alven':girl?'Jente':'Gutt'}">
+ return `<svg viewBox="0 0 180 250" role="img" aria-label="${troll?'Vennlig troll':robber?'Tegneserierøver':elf?'Alven':girl?'Jente':'Gutt'}">
  <ellipse cx="90" cy="238" rx="55" ry="8" fill="#263d3520"/>
  <g class="legs" fill="${troll?'#735a45':'#3e526e'}"><rect x="58" y="170" width="26" height="57" rx="12"/><rect x="97" y="170" width="26" height="57" rx="12"/></g>
  <g fill="#493b35"><ellipse cx="67" cy="226" rx="22" ry="11"/><ellipse cx="113" cy="226" rx="22" ry="11"/></g>
@@ -43,6 +43,7 @@ function person(kind){
  <ellipse cx="90" cy="73" rx="43" ry="46" fill="${skin}"/>
  ${!troll?'<path d="M48 66 Q40 14 90 21 Q139 16 133 64 Q114 43 101 43 Q80 66 48 66" fill="'+hair+'"/>':''}
  ${elf?'<path d="M44 39 L93 0 L133 40Z" fill="#346848"/><circle cx="93" cy="6" r="7" fill="#f4d275"/>':''}
+ ${robber?'<path d="M46 57 Q90 36 134 57 L131 81 Q90 67 49 81Z" fill="#34303d"/><path d="M49 47 Q49 11 90 15 Q131 11 132 47Z" fill="#67518a"/><ellipse cx="75" cy="73" rx="11" ry="9" fill="white"/><ellipse cx="106" cy="73" rx="11" ry="9" fill="white"/><path d="M131 152 Q164 139 169 173 L174 207 Q154 225 130 208Z" fill="#b18b51"/><text x="151" y="196" text-anchor="middle" font-size="27" fill="#ffdf68">★</text>':''}
  <g fill="#293b32"><circle cx="75" cy="73" r="4"/><circle cx="106" cy="73" r="4"/></g>
  <ellipse cx="90" cy="86" rx="${troll?12:5}" ry="7" fill="${troll?'#7c9c57':'#e7a17e'}"/>
  <path d="M74 96 Q90 110 107 96" fill="white" stroke="#674c37" stroke-width="3" stroke-linecap="round"/>
@@ -50,11 +51,11 @@ function person(kind){
  </svg>`;
 }
 function showEncounter(state){
- const scene=$('encounter');scene.className='encounter';
+ const scene=$('encounter');scene.className='encounter';$('spark').textContent=state==='retry'?'🪙':'✨';
  $('hero').innerHTML=person('hero');
  $('visitor').hidden=state==='ready';
- $('visitor').innerHTML=state==='retry'?person('troll'):person('elf');
- $('speech').textContent=state==='success'?(position===100?'Hurra! Du klarte det! High five!':'Bra! Gi meg en high five!'):state==='retry'?'Vi prøver igjen sammen! Du klarer det!':'Jeg er klar! La oss hoppe mot 100!';
+ $('visitor').innerHTML=state==='retry'?person('robber'):person('elf');
+ $('speech').textContent=state==='success'?(position===100?'Hurra! Du klarte det! High five!':'Bra! Gi meg en high five!'):state==='retry'?'Hehe! Jeg tar en gullmynt og stikker!':'Jeg er klar! La oss hoppe mot 100!';
  void scene.offsetWidth;scene.classList.add(state);
 }
 

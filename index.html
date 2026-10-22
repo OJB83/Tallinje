@@ -4,11 +4,17 @@
 .encounter{position:relative;margin:22px 0;background:linear-gradient(#f6efd8,#e7efd8);border:1px solid #d7dfce;border-radius:24px;overflow:hidden;min-height:300px;padding-top:65px}.speech{position:relative;z-index:2;margin:0 auto;max-width:90%;width:max-content;background:white;border-radius:18px;padding:14px 22px;font-weight:800;box-shadow:0 5px 15px #304d3012}.speech:after{content:'';position:absolute;bottom:-10px;left:40%;border-top:12px solid white;border-right:12px solid transparent}.actors{height:245px;position:relative;max-width:400px;margin:auto}.actor{position:absolute;bottom:0;width:180px}.actor svg{display:block;width:100%;overflow:visible}.hero{left:calc(50% - 90px);transition:left .6s}.visitor{right:0}.success .hero,.retry .hero{left:0}.success .visitor,.retry .visitor{animation:enter .8s both}.arm{transform-box:view-box}.success .hero .right-arm{transform-origin:122px 124px;animation:highfive 1.4s .7s 2 forwards}.success .visitor .left-arm{transform-origin:57px 124px;animation:elf-five 1.4s .7s 2 forwards}.retry .visitor .right-arm{transform-origin:122px 124px;animation:wave 1s .7s 3}.ready .hero{animation:breathe 3s infinite}.success .hero svg{animation:cheer .8s .1s}.retry .hero svg{animation:nod 1s}#spark{position:absolute;left:50%;top:40px;font-size:42px;opacity:0;transform:translateX(-50%)}.success #spark{animation:spark 1.4s .7s 2}.encounter{padding-top:20px}@keyframes enter{from{opacity:0;transform:translateX(180px)}to{opacity:1;transform:translateX(0)}}@keyframes highfive{0%,100%{transform:rotate(-105deg)}50%{transform:rotate(-120deg)}}@keyframes elf-five{0%,100%{transform:rotate(105deg)}50%{transform:rotate(120deg)}}@keyframes wave{0%,100%{transform:rotate(-115deg)}50%{transform:rotate(-145deg)}}@keyframes breathe{50%{transform:translateY(-5px)}}@keyframes cheer{50%{transform:translateY(-20px)}}@keyframes nod{50%{transform:rotate(-4deg)}}@keyframes spark{25%,65%{opacity:1;transform:translateX(-50%) scale(1.4)}100%{opacity:0}}@media(max-width:500px){.actor{width:145px}.actors{height:205px;max-width:300px}.hero{left:calc(50% - 72px)}.speech{font-size:14px}.encounter{min-height:270px}#spark{top:28px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.success .hero .right-arm{transform:rotate(-110deg)}.success .visitor .left-arm{transform:rotate(110deg)}}
 .actors{max-width:300px}@media(max-width:500px){.actors{max-width:245px}}
 
-
 .skin-options{border:0;display:flex;justify-content:center;gap:10px;padding:0;margin:24px 0}.skin-options legend{margin:auto;padding-bottom:12px;font-weight:700}.skin-options button{font-size:27px;padding:12px;background:#f4f6ed;border:2px solid transparent}.skin-options button[aria-pressed=true]{border-color:#55854d;background:#e9f1df}.skin-options span{display:block;font-size:13px;margin-top:5px}
+
+.retry .visitor{animation:robber-run 3.5s both}.retry #spark{animation:stolen-coin 3.5s both}.retry .visitor .legs{animation:running-legs .25s 8 alternate;transform-origin:90px 175px}.retry .hero svg{animation:nod 1s}
+@keyframes robber-run{0%{opacity:0;transform:translateX(230px) rotate(8deg)}25%,55%{opacity:1;transform:translateX(0) rotate(0)}100%{opacity:0;transform:translateX(450px) rotate(12deg)}}
+@keyframes stolen-coin{0%,20%{opacity:0;transform:translate(-50%,30px)}30%,55%{opacity:1;transform:translate(0,0)}90%,100%{opacity:0;transform:translate(300px,-30px)}}
+@keyframes running-legs{from{transform:rotate(-10deg)}to{transform:rotate(10deg)}}
+@media(prefers-reduced-motion:reduce){.retry .visitor{animation:none;opacity:1}.retry #spark{animation:none;opacity:1}}
+
 </style></head>
-<body><main><header><span>🌿 LÆR • HOPP • UTFORSK</span><h1>Tallinjeeventyret</h1><p>Møt alven og trollet! Klarer du å nå 100?</p></header>
-<section id="setup" class="card"><h2>Hvem vil du være?</h2><p>Velg din eventyrer og bli med på tur!</p><div class="choices"><button class="avatar" data-avatar="👦" aria-pressed="true">👦<span>Gutt</span></button><button class="avatar" data-avatar="👧" aria-pressed="false">👧<span>Jente</span></button></div><fieldset class="skin-options"><legend>Velg hudtone</legend><button type="button" data-skin="dark" aria-pressed="true">👦🏿 👧🏿<span>Mørk</span></button><button type="button" data-skin="medium" aria-pressed="false">👦🏽 👧🏽<span>Mellom</span></button><button type="button" data-skin="light" aria-pressed="false">👦🏻 👧🏻<span>Lys</span></button></fieldset><button id="start" class="primary">Start eventyret →</button><p class="hint">Riktig svar gir et hopp framover. Feil svar gir 10 felt tilbake.<br>Du kan alltid prøve igjen!</p></section>
+<body><main><header><span>🌿 LÆR • HOPP • UTFORSK</span><h1>Tallinjeeventyret</h1><p>Møt alven og røveren! Klarer du å nå 100?</p></header>
+<section id="setup" class="card"><h2>Hvem vil du være?</h2><p>Velg din eventyrer og bli med på tur!</p><div class="choices"><button class="avatar" data-avatar="👦" aria-pressed="true">👦<span>Gutt</span></button><button class="avatar" data-avatar="👧" aria-pressed="false">👧<span>Jente</span></button></div><fieldset class="skin-options"><legend>Velg hudtone</legend><button type="button" data-skin="dark" aria-pressed="true">👦🏿 👧🏿<span>Mørk</span></button><button type="button" data-skin="medium" aria-pressed="false">👦🏽 👧🏽<span>Mellom</span></button><button type="button" data-skin="light" aria-pressed="false">👦🏻 👧🏻<span>Lys</span></button></fieldset><button id="start" class="primary">Start eventyret →</button><p class="hint">Riktig svar gir et hopp framover. Feil svar gir 10 felt tilbake.<br>En tegneserierøver tar en gullmynt ved feil. Du kan alltid prøve igjen!</p></section>
 <section id="game" hidden><div class="stats"><span id="position">📍 Felt 0 av 100</span><button id="restart">Start på nytt</button></div><section id="encounter" class="encounter" aria-label="Figurene i eventyret"><div id="speech" class="speech">Hei! Bli med på eventyr!</div><div class="actors"><div id="hero" class="actor hero"></div><div id="visitor" class="actor visitor" hidden></div><div id="spark" aria-hidden="true">✨</div></div></section><section class="landscape" aria-label="Tallinje fra 0 til 100"><div class="sun">☀️</div><div class="trees">🌲 🌳 🌲</div><div id="character" aria-label="Spillfiguren">👦</div><div class="track"><div id="fill"></div></div><div class="ticks"><span>0</span><span>10</span><span>20</span><span>30</span><span>40</span><span>50</span><span>60</span><span>70</span><span>80</span><span>90</span><span>100 🏁</span></div></section><section class="card task"><div id="feedback" role="status" aria-live="polite">Eventyret begynner! Løs oppgaven for å hoppe.</div><form id="answer-form"><label for="answer" id="question"></label><div class="answer-row"><input id="answer" type="number" inputmode="numeric" required autocomplete="off" aria-describedby="feedback"><button class="primary" type="submit">Hopp! ↗</button></div></form><button id="next" class="primary" hidden>Neste oppgave →</button><button id="again" class="primary" hidden>Spill igjen ↻</button><p class="hint" id="help"></p></section></section><footer>Et lite regneeventyr · Addisjon, subtraksjon, multiplikasjon og divisjon</footer></main><script>
 'use strict';
 const $ = id => document.getElementById(id);
@@ -34,15 +40,15 @@ $('again').addEventListener('click',start);
 $('next').addEventListener('click',()=>{$('feedback').textContent='Klar for et nytt hopp?';newTask();});
 $('answer-form').addEventListener('submit',event=>{event.preventDefault();if(locked||$('answer').value==='')return;locked=true;const correct=Number($('answer').value)===task.target;position=correct?task.target:Math.max(0,position-10);draw();showEncounter(correct?'success':'retry');$('character').classList.remove('hopping');void $('character').offsetWidth;$('character').classList.add('hopping');$('answer-form').hidden=true;
 if(position===100){$('feedback').textContent='🧝 🙌 Bra! Du nådde 100! For et flott regneeventyr! 🎉';$('again').hidden=false;$('help').textContent='Du er i mål! Spill igjen for nye oppgaver.';$('again').focus();}
-else{$('feedback').textContent=correct?'🧝 🙌 Bra! Alven gir deg en high five!':`🧌 Prøv igjen! ${task.text} = ${task.target}. Du går 10 felt tilbake, men aldri forbi 0.`;$('help').textContent=correct?`Du landet på ${position}. Fortsett mot 100!`:task.help;$('next').hidden=false;$('next').focus();}});
+else{$('feedback').textContent=correct?'🧝 🙌 Bra! Alven gir deg en high five!':`En røver tok en gullmynt! ${task.text} = ${task.target}. Du går 10 felt tilbake, men aldri forbi 0.`;$('help').textContent=correct?`Du landet på ${position}. Fortsett mot 100!`:task.help;$('next').hidden=false;$('next').focus();}});
 
 function person(kind){
  const girl=avatar==='👧';
- const troll=kind==='troll', elf=kind==='elf';
- const skin=troll?'#93b66b':elf?'#f3c497':({dark:'#75452f',medium:'#bd8055',light:'#f3c497'}[skinTone]);
- const shirt=troll?'#9b744e':elf?'#44854b':girl?'#ab63a8':'#5288c4';
+ const troll=kind==='troll', elf=kind==='elf', robber=kind==='robber';
+ const skin=troll?'#93b66b':robber?'#e2aa78':elf?'#f3c497':({dark:'#75452f',medium:'#bd8055',light:'#f3c497'}[skinTone]);
+ const shirt=troll?'#9b744e':robber?'#67518a':elf?'#44854b':girl?'#ab63a8':'#5288c4';
  const hair=elf?'#e8ba5b':skinTone==='light'?'#69432f':'#241b1a';
- return `<svg viewBox="0 0 180 250" role="img" aria-label="${troll?'Vennlig troll':elf?'Alven':girl?'Jente':'Gutt'}">
+ return `<svg viewBox="0 0 180 250" role="img" aria-label="${troll?'Vennlig troll':robber?'Tegneserierøver':elf?'Alven':girl?'Jente':'Gutt'}">
  <ellipse cx="90" cy="238" rx="55" ry="8" fill="#263d3520"/>
  <g class="legs" fill="${troll?'#735a45':'#3e526e'}"><rect x="58" y="170" width="26" height="57" rx="12"/><rect x="97" y="170" width="26" height="57" rx="12"/></g>
  <g fill="#493b35"><ellipse cx="67" cy="226" rx="22" ry="11"/><ellipse cx="113" cy="226" rx="22" ry="11"/></g>
@@ -55,6 +61,7 @@ function person(kind){
  <ellipse cx="90" cy="73" rx="43" ry="46" fill="${skin}"/>
  ${!troll?'<path d="M48 66 Q40 14 90 21 Q139 16 133 64 Q114 43 101 43 Q80 66 48 66" fill="'+hair+'"/>':''}
  ${elf?'<path d="M44 39 L93 0 L133 40Z" fill="#346848"/><circle cx="93" cy="6" r="7" fill="#f4d275"/>':''}
+ ${robber?'<path d="M46 57 Q90 36 134 57 L131 81 Q90 67 49 81Z" fill="#34303d"/><path d="M49 47 Q49 11 90 15 Q131 11 132 47Z" fill="#67518a"/><ellipse cx="75" cy="73" rx="11" ry="9" fill="white"/><ellipse cx="106" cy="73" rx="11" ry="9" fill="white"/><path d="M131 152 Q164 139 169 173 L174 207 Q154 225 130 208Z" fill="#b18b51"/><text x="151" y="196" text-anchor="middle" font-size="27" fill="#ffdf68">★</text>':''}
  <g fill="#293b32"><circle cx="75" cy="73" r="4"/><circle cx="106" cy="73" r="4"/></g>
  <ellipse cx="90" cy="86" rx="${troll?12:5}" ry="7" fill="${troll?'#7c9c57':'#e7a17e'}"/>
  <path d="M74 96 Q90 110 107 96" fill="white" stroke="#674c37" stroke-width="3" stroke-linecap="round"/>
@@ -62,11 +69,11 @@ function person(kind){
  </svg>`;
 }
 function showEncounter(state){
- const scene=$('encounter');scene.className='encounter';
+ const scene=$('encounter');scene.className='encounter';$('spark').textContent=state==='retry'?'🪙':'✨';
  $('hero').innerHTML=person('hero');
  $('visitor').hidden=state==='ready';
- $('visitor').innerHTML=state==='retry'?person('troll'):person('elf');
- $('speech').textContent=state==='success'?(position===100?'Hurra! Du klarte det! High five!':'Bra! Gi meg en high five!'):state==='retry'?'Vi prøver igjen sammen! Du klarer det!':'Jeg er klar! La oss hoppe mot 100!';
+ $('visitor').innerHTML=state==='retry'?person('robber'):person('elf');
+ $('speech').textContent=state==='success'?(position===100?'Hurra! Du klarte det! High five!':'Bra! Gi meg en high five!'):state==='retry'?'Hehe! Jeg tar en gullmynt og stikker!':'Jeg er klar! La oss hoppe mot 100!';
  void scene.offsetWidth;scene.classList.add(state);
 }
 
