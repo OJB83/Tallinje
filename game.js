@@ -1,6 +1,6 @@
 'use strict';
 const $ = id => document.getElementById(id);
-let avatar='👦', position=0, task, round=0, locked=false;
+let avatar='👦', skinTone='dark', position=0, task, round=0, locked=false;
 const random = (min,max) => Math.floor(Math.random()*(max-min+1))+min;
 function makeTask(pos,index){
   const target=Math.min(100,pos+random(5,12));
@@ -14,7 +14,7 @@ function makeTask(pos,index){
 }
 function draw(){ $('position').textContent=`📍 Felt ${position} av 100`;$('character').style.left=`calc(30px + (100% - 60px) * ${position/100})`;$('fill').style.width=`${position}%`; }
 function newTask(){showEncounter('ready');locked=false;task=makeTask(position,round++);$('question').textContent=`${task.text} = ?`;$('help').textContent=task.help;$('answer').value='';$('answer-form').hidden=false;$('next').hidden=true;$('answer').focus();}
-function start(){position=0;round=0;$('setup').hidden=true;$('game').hidden=false;$('again').hidden=true;$('character').textContent=avatar;$('feedback').textContent='Eventyret begynner! Løs oppgaven for å hoppe.';draw();newTask();}
+function start(){position=0;round=0;$('setup').hidden=true;$('game').hidden=false;$('again').hidden=true;$('character').textContent=avatar+(skinTone==='dark'?'🏿':skinTone==='medium'?'🏽':'🏻');$('feedback').textContent='Eventyret begynner! Løs oppgaven for å hoppe.';draw();newTask();}
 document.querySelectorAll('[data-avatar]').forEach(button=>button.addEventListener('click',()=>{avatar=button.dataset.avatar;document.querySelectorAll('[data-avatar]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));}));
 $('start').addEventListener('click',start);
 $('restart').addEventListener('click',()=>{$('game').hidden=true;$('setup').hidden=false;$('start').focus();});
@@ -27,9 +27,9 @@ else{$('feedback').textContent=correct?'🧝 🙌 Bra! Alven gir deg en high fiv
 function person(kind){
  const girl=avatar==='👧';
  const troll=kind==='troll', elf=kind==='elf';
- const skin=troll?'#93b66b':'#f3c497';
+ const skin=troll?'#93b66b':elf?'#f3c497':({dark:'#75452f',medium:'#bd8055',light:'#f3c497'}[skinTone]);
  const shirt=troll?'#9b744e':elf?'#44854b':girl?'#ab63a8':'#5288c4';
- const hair=elf?'#e8ba5b':'#69432f';
+ const hair=elf?'#e8ba5b':skinTone==='light'?'#69432f':'#241b1a';
  return `<svg viewBox="0 0 180 250" role="img" aria-label="${troll?'Vennlig troll':elf?'Alven':girl?'Jente':'Gutt'}">
  <ellipse cx="90" cy="238" rx="55" ry="8" fill="#263d3520"/>
  <g class="legs" fill="${troll?'#735a45':'#3e526e'}"><rect x="58" y="170" width="26" height="57" rx="12"/><rect x="97" y="170" width="26" height="57" rx="12"/></g>
@@ -57,3 +57,5 @@ function showEncounter(state){
  $('speech').textContent=state==='success'?(position===100?'Hurra! Du klarte det! High five!':'Bra! Gi meg en high five!'):state==='retry'?'Vi prøver igjen sammen! Du klarer det!':'Jeg er klar! La oss hoppe mot 100!';
  void scene.offsetWidth;scene.classList.add(state);
 }
+
+document.querySelectorAll('[data-skin]').forEach(button=>button.addEventListener('click',()=>{skinTone=button.dataset.skin;document.querySelectorAll('[data-skin]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));}));
