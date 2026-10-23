@@ -27,7 +27,7 @@ else{$('feedback').textContent=correct?'🧝 🙌 Bra! Alven gir deg en high fiv
 function person(kind){
  const girl=avatar==='👧';
  const troll=kind==='troll', elf=kind==='elf', robber=kind==='robber';
- const skin=troll?'#93b66b':robber?'#e2aa78':elf?'#f3c497':({dark:'#75452f',medium:'#bd8055',light:'#f3c497'}[skinTone]);
+ const skin=troll?'#93b66b':robber?'#75452f':elf?'#f3c497':({dark:'#75452f',medium:'#bd8055',light:'#f3c497'}[skinTone]);
  const shirt=troll?'#9b744e':robber?'#67518a':elf?'#44854b':girl?'#ab63a8':'#5288c4';
  const hair=elf?'#e8ba5b':skinTone==='light'?'#69432f':'#241b1a';
  return `<svg viewBox="0 0 180 250" role="img" aria-label="${troll?'Vennlig troll':robber?'Tegneserierøver':elf?'Alven':girl?'Jente':'Gutt'}">
